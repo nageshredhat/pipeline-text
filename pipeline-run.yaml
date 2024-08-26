@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: flask-app-pipeline-run
+spec:
+  pipelineRef:
+    name: flask-app-pipeline
+  params:
+    - name: image
+      value: quay.io/nageshrathod/pipeline:pipe-v1

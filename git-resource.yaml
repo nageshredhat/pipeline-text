@@ -6,6 +6,6 @@ spec:
   type: git
   params:
     - name: url
-      value: https://github.com/your-repo/flask-app.git
+      value: https://github.com/nageshredhat/pipeline-text.git
     - name: revision
       value: main
