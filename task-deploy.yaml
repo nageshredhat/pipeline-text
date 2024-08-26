@@ -4,10 +4,11 @@ metadata:
   name: deploy-flask-app
 spec:
   params:
-    - name: image
+    - name: imageName
       type: string
   steps:
     - name: deploy
-      image: bitnami/kubectl
+      image: 'quay.io/openshift/origin-cli:latest'
       script: |
-        kubectl set image deployment/flask-app flask-app=$(params.image)
+        oc new-app $(params.imageName)
+        oc expose svc/$(params.imageName)

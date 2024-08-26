@@ -6,5 +6,7 @@ spec:
   pipelineRef:
     name: flask-app-pipeline
   params:
-    - name: image
-      value: quay.io/nageshrathod/pipeline:pipe-v1
+    - name: imageName
+      value: flask-app
+    - name: gitSource
+      value: https://github.com/nageshredhat/pipeline-text.git

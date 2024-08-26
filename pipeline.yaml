@@ -4,20 +4,24 @@ metadata:
   name: flask-app-pipeline
 spec:
   params:
-    - name: image
+    - name: imageName
+      type: string
+    - name: gitSource
       type: string
   tasks:
     - name: build
       taskRef:
         name: build-flask-app
       params:
-        - name: image
-          value: $(params.image)
+        - name: imageName
+          value: $(params.imageName)
+        - name: gitSource
+          value: $(params.gitSource)
     - name: deploy
       taskRef:
         name: deploy-flask-app
       params:
-        - name: image
-          value: $(params.image)
+        - name: imageName
+          value: $(params.imageName)
       runAfter:
         - build
