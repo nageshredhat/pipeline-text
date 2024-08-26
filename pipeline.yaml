@@ -1,0 +1,23 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: flask-app-pipeline
+spec:
+  params:
+    - name: image
+      type: string
+  tasks:
+    - name: build
+      taskRef:
+        name: build-flask-app
+      params:
+        - name: image
+          value: $(params.image)
+    - name: deploy
+      taskRef:
+        name: deploy-flask-app
+      params:
+        - name: image
+          value: $(params.image)
+      runAfter:
+        - build
