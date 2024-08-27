@@ -17,4 +17,4 @@ spec:
       image: 'quay.io/openshift/origin-cli:latest'
       workingDir: /workspace/source
       script: |
-        oc start-build $(params.imageName) --from-dir=. --follow
+        oc start-build $(params.imageName) --from-dir=. --follow --tag=$(params.imageName):latest
