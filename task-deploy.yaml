@@ -11,4 +11,5 @@ spec:
       image: 'quay.io/openshift/origin-cli:latest'
       script: |
         oc new-app $(params.imageName) --allow-missing-imagestream-tags
+        oc expose deployment/flask-app --port=5000 --target-port=5000
         oc expose svc/$(params.imageName)
