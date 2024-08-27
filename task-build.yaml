@@ -12,7 +12,7 @@ spec:
     - name: create-build-config
       image: 'quay.io/openshift/origin-cli:latest'
       script: |
-        oc new-build --binary --name=$(params.imageName) -l app=$(params.imageName) --strategy=docker
+        oc new-build --binary --name=$(params.imageName):latest -l app=$(params.imageName) --strategy=docker
     - name: start-build
       image: 'quay.io/openshift/origin-cli:latest'
       workingDir: /workspace/source
