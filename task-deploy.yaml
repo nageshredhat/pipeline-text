@@ -10,5 +10,5 @@ spec:
     - name: deploy
       image: 'quay.io/openshift/origin-cli:latest'
       script: |
-        oc new-app $(params.imageName)
+        oc new-app $(params.imageName) --allow-missing-imagestream-tags
         oc expose svc/$(params.imageName)
